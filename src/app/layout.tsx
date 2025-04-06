@@ -38,6 +38,14 @@ export const metadata: Metadata = {
       "Building scalable cloud-native systems and high-performance applications. Expertise in AWS, Python, Typescript, Redis, Kafka and distributed architecture.",
     url: "https://rajs.dev",
     siteName: "Raj Sudharshan",
+    images: [
+      {
+        url: "/images/og-image.png",
+        width: 400,
+        height: 400,
+        alt: "Raj Sudharshan",
+      },
+    ],
   },
   icons: {
     icon: [
