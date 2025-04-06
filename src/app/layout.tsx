@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 const inter = Inter({
@@ -32,7 +33,8 @@ export const metadata: Metadata = {
   ].join(", "),
   openGraph: {
     title: "Raj Sudharshan | Software Engineer",
-    description: "Building scalable cloud-native systems and high-performance applications. Expertise in AWS, Python, Typescript, Redis, Kafka and distributed architecture.",
+    description:
+      "Building scalable cloud-native systems and high-performance applications. Expertise in AWS, Python, Typescript, Redis, Kafka and distributed architecture.",
     url: "https://rajs.dev",
     siteName: "Raj Sudharshan",
   },
@@ -56,7 +58,10 @@ export default function RootLayout({
       <head>
         <link rel="canonical" href="https://rajs.dev" />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <SpeedInsights />
+      </body>
     </html>
   );
 }
