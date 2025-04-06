@@ -4,19 +4,20 @@ export const colors = {
     primary: "text-white",
     secondary: "text-[#999999]",
     tertiary: "text-[#888888]",
-    hover: "text-[#AAAAAA]",
+    hover: "hover:text-teal-500",
+    groupHover: "group-hover:text-teal-500",
   },
   // Background colors
   background: {
     primary: "bg-black",
     secondary: "bg-[#111111]",
     tertiary: "bg-[#222222]",
-    hoverLink: "bg-blue-300",
+    hoverLink: "hover:bg-teal-500",
   },
   // Border colors
   border: {
     primary: "border-[#333333]",
-    hover: "border-white",
+    hover: "hover:border-white",
   },
   // Divider color
   divider: {

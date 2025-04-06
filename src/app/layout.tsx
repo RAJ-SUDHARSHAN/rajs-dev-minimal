@@ -59,7 +59,7 @@ export default function RootLayout({
       <head>
         <link rel="canonical" href="https://rajs.dev" />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         {children}
         <SpeedInsights />
         <Analytics />

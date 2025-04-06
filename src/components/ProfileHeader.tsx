@@ -21,7 +21,7 @@ const ProfileHeader = () => {
         <div className="flex items-center space-x-4">
           <div>
             <h1
-              className={`text-3xl font-normal ${colors.text.primary} hover:${colors.text.hover} transition-colors tracking-tight`}
+              className={`text-3xl font-normal ${colors.text.primary} ${colors.text.hover} transition-colors tracking-tight`}
             >
               Raj Sudharshan
             </h1>
@@ -31,7 +31,7 @@ const ProfileHeader = () => {
           <Link
             href="https://github.com/raj-sudharshan"
             target="_blank"
-            className={`bg-white rounded-md p-1 hover:${colors.background.hoverLink} transition-colors duration-300`}
+            className={`bg-white rounded-md p-1 ${colors.background.hoverLink} transition-colors duration-300`}
             aria-label="GitHub"
           >
             <FaGithub className="w-4 h-4 text-black" />
@@ -39,7 +39,7 @@ const ProfileHeader = () => {
           <Link
             href="https://linkedin.com/in/sudharshann05"
             target="_blank"
-            className={`bg-white rounded-md p-1 hover:${colors.background.hoverLink} transition-colors duration-300`}
+            className={`bg-white rounded-md p-1 ${colors.background.hoverLink} transition-colors duration-300`}
             aria-label="LinkedIn"
           >
             <FaLinkedinIn className="w-4 h-4 text-black" />

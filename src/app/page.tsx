@@ -18,7 +18,7 @@ const HomePage = () => {
         {/* About Section */}
         <section className="mb-16">
           <h2
-            className={`text-2xl font-normal mb-6 ${colors.text.primary} hover:${colors.text.hover} transition-colors tracking-tight`}
+            className={`text-2xl font-normal mb-6 ${colors.text.primary} ${colors.text.hover} transition-colors tracking-tight`}
           >
             About me
           </h2>
@@ -34,7 +34,7 @@ const HomePage = () => {
         {/* Experience Section */}
         <section className="mb-16">
           <h2
-            className={`text-2xl font-normal mb-6 ${colors.text.primary} hover:${colors.text.hover} transition-colors tracking-tight`}
+            className={`text-2xl font-normal mb-6 ${colors.text.primary} ${colors.text.hover} transition-colors tracking-tight`}
           >
             Experience
           </h2>
@@ -55,7 +55,7 @@ const HomePage = () => {
                   </div>
                   <div className="space-y-2">
                     <h3
-                      className={`text-xl font-normal ${colors.text.primary} group-hover:${colors.text.hover} transition-colors tracking-tight`}
+                      className={`text-xl font-normal ${colors.text.primary} ${colors.text.groupHover} transition-colors tracking-tight`}
                     >
                       {exp.title}
                     </h3>
@@ -72,7 +72,7 @@ const HomePage = () => {
         {/* What I Use Section */}
         <section className="mb-16">
           <h2
-            className={`text-2xl font-normal mb-6 ${colors.text.primary} hover:${colors.text.hover} transition-colors tracking-tight`}
+            className={`text-2xl font-normal mb-6 ${colors.text.primary} ${colors.text.hover} transition-colors tracking-tight`}
           >
             What I use
           </h2>
@@ -82,14 +82,19 @@ const HomePage = () => {
 
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-6">
             {tools.map((tool, index) => (
-              <div key={index} className="flex flex-col items-center space-y-2">
+              <div
+                key={index}
+                className="flex flex-col items-center space-y-2 group"
+              >
                 <div
-                  className={`w-12 h-12 rounded-lg ${colors.background.secondary} border border-black hover:${colors.border.hover} flex items-center justify-center`}
+                  className={`w-12 h-12 rounded-lg ${colors.background.secondary} border border-black ${colors.border.hover} flex items-center justify-center ${colors.text.groupHover}`}
                 >
-                  <tool.icon className={`w-6 h-6 ${colors.text.primary}`} />
+                  <tool.icon
+                    className={`w-6 h-6 ${colors.text.primary} ${colors.text.groupHover} transition-colors`}
+                  />
                 </div>
                 <span
-                  className={`text-sm text-center ${colors.text.secondary}`}
+                  className={`text-sm text-center ${colors.text.secondary} ${colors.text.groupHover} transition-colors`}
                 >
                   {tool.name}
                 </span>
@@ -101,7 +106,7 @@ const HomePage = () => {
         {/* Projects Section */}
         <section className="mb-16">
           <h2
-            className={`text-2xl font-normal mb-6 ${colors.text.primary} hover:${colors.text.hover} transition-colors tracking-tight`}
+            className={`text-2xl font-normal mb-6 ${colors.text.primary} ${colors.text.hover} transition-colors tracking-tight`}
           >
             What I build
           </h2>
@@ -116,16 +121,16 @@ const HomePage = () => {
                 aria-label={`View project: ${project.title}`}
               >
                 <article
-                  className={`rounded-lg ${colors.background.secondary} border ${colors.border.primary} p-6 hover:${colors.border.hover} transition-all duration-300 h-full`}
+                  className={`rounded-lg ${colors.background.secondary} border ${colors.border.primary} p-6 ${colors.border.hover} transition-all duration-300 h-full`}
                 >
                   <div className="flex items-center justify-between">
                     <h3
-                      className={`text-xl font-normal ${colors.text.primary} group-hover:${colors.text.hover} transition-colors tracking-tight`}
+                      className={`text-xl font-normal ${colors.text.primary} ${colors.text.groupHover} transition-colors tracking-tight`}
                     >
                       {project.title}
                     </h3>
                     <FiArrowUpRight
-                      className={`w-4 h-4 ${colors.text.tertiary} group-hover:${colors.text.hover} transition-colors`}
+                      className={`w-4 h-4 ${colors.text.tertiary} ${colors.text.groupHover} transition-colors`}
                       aria-hidden="true"
                     />
                   </div>
@@ -146,7 +151,7 @@ const HomePage = () => {
         {/* Contact Section */}
         <section className="mb-16">
           <h2
-            className={`text-2xl font-normal mb-6 ${colors.text.primary} hover:${colors.text.hover} transition-colors tracking-tight`}
+            className={`text-2xl font-normal mb-6 ${colors.text.primary} ${colors.text.hover} transition-colors tracking-tight`}
           >
             Contact
           </h2>
@@ -157,7 +162,7 @@ const HomePage = () => {
           <div className="flex flex-col sm:flex-row gap-4">
             <a
               href="mailto:sudharshann05@gmail.com"
-              className={`flex items-center justify-center gap-2 px-6 py-3 rounded-full ${colors.background.secondary} ${colors.text.primary} hover:${colors.text.hover} border ${colors.border.primary} hover:${colors.border.hover} transition-colors w-full sm:w-auto`}
+              className={`flex items-center justify-center gap-2 px-6 py-3 rounded-full ${colors.background.secondary} ${colors.text.primary} ${colors.text.hover} border ${colors.border.primary} ${colors.border.hover} transition-colors w-full sm:w-auto`}
             >
               <HiMail className="w-5 h-5" />
               <span>Send Email</span>
@@ -166,7 +171,7 @@ const HomePage = () => {
               href="https://cal.com/raj-sudharshan"
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex items-center justify-center gap-2 px-6 py-3 rounded-full ${colors.background.secondary} ${colors.text.primary} hover:${colors.text.hover} border ${colors.border.primary} hover:${colors.border.hover} transition-colors w-full sm:w-auto`}
+              className={`flex items-center justify-center gap-2 px-6 py-3 rounded-full ${colors.background.secondary} ${colors.text.primary} ${colors.text.hover} border ${colors.border.primary} ${colors.border.hover} transition-colors w-full sm:w-auto`}
             >
               <BsCalendarWeek className="w-5 h-5" />
               <span>Book Call</span>
@@ -177,10 +182,14 @@ const HomePage = () => {
         {/* Footer */}
         <footer className="pt-8 border-t border-[#333333]">
           <div className="flex flex-col sm:flex-row items-center sm:justify-between text-sm gap-4 sm:gap-0">
-            <p className={`${colors.text.tertiary} text-center sm:text-left`}>
+            <p
+              className={`${colors.text.tertiary} ${colors.text.hover} text-center sm:text-left`}
+            >
               Less, but better.
             </p>
-            <p className={`${colors.text.tertiary} text-center sm:text-right`}>
+            <p
+              className={`${colors.text.tertiary} ${colors.text.hover} text-center sm:text-right`}
+            >
               © {new Date().getFullYear()} Raj Sudharshan. All rights reserved.
             </p>
           </div>
