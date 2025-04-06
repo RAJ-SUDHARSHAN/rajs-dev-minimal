@@ -1,103 +1,193 @@
-import Image from "next/image";
+import ProfileHeader from "../components/ProfileHeader";
+import { about, experiences, projects } from "../data/content";
+import { tools } from "../data/skills";
+import { colors } from "@/constants/colors";
+import { FiArrowUpRight } from "react-icons/fi";
+// import { FaXTwitter } from "react-icons/fa6";
+import { HiMail } from "react-icons/hi";
+import { BsCalendarWeek } from "react-icons/bs";
 
-export default function Home() {
+const HomePage = () => {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main
+      className={`min-h-screen ${colors.background.primary} font-['Inter']`}
+    >
+      <div className="max-w-3xl mx-auto px-4 py-16">
+        <ProfileHeader />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+        {/* About Section */}
+        <section className="mb-16">
+          <h2
+            className={`text-2xl font-normal mb-6 ${colors.text.primary} hover:${colors.text.hover} transition-colors tracking-tight`}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            About me
+          </h2>
+
+          {/* Divider */}
+          <div className={`my-5 h-px w-full ${colors.divider.primary}`} />
+
+          <p className={`${colors.text.secondary} leading-relaxed text-lg`}>
+            {about.content}
+          </p>
+        </section>
+
+        {/* Experience Section */}
+        <section className="mb-16">
+          <h2
+            className={`text-2xl font-normal mb-6 ${colors.text.primary} hover:${colors.text.hover} transition-colors tracking-tight`}
           >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+            Experience
+          </h2>
+
+          {/* Divider */}
+          <div className={`my-5 h-px w-full ${colors.divider.primary}`} />
+
+          <div className="space-y-16">
+            {experiences.map((exp, index) => (
+              <div key={index} className="group">
+                <div className="grid grid-cols-1 md:grid-cols-[180px_1fr] gap-2 md:gap-6">
+                  <div
+                    className={`${colors.text.tertiary} space-y-1 md:space-y-0`}
+                  >
+                    {exp.period.split("—").map((date, i) => (
+                      <div key={i}>{date.trim()}</div>
+                    ))}
+                  </div>
+                  <div className="space-y-2">
+                    <h3
+                      className={`text-xl font-normal ${colors.text.primary} group-hover:${colors.text.hover} transition-colors tracking-tight`}
+                    >
+                      {exp.title}
+                    </h3>
+                    <p className={`${colors.text.secondary} leading-relaxed`}>
+                      {exp.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* What I Use Section */}
+        <section className="mb-16">
+          <h2
+            className={`text-2xl font-normal mb-6 ${colors.text.primary} hover:${colors.text.hover} transition-colors tracking-tight`}
+          >
+            What I use
+          </h2>
+
+          {/* Divider */}
+          <div className={`my-5 h-px w-full ${colors.divider.primary}`} />
+
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-6">
+            {tools.map((tool, index) => (
+              <div key={index} className="flex flex-col items-center space-y-2">
+                <div
+                  className={`w-12 h-12 rounded-lg ${colors.background.secondary} border border-black hover:${colors.border.hover} flex items-center justify-center`}
+                >
+                  <tool.icon className={`w-6 h-6 ${colors.text.primary}`} />
+                </div>
+                <span
+                  className={`text-sm text-center ${colors.text.secondary}`}
+                >
+                  {tool.name}
+                </span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Projects Section */}
+        <section className="mb-16">
+          <h2
+            className={`text-2xl font-normal mb-6 ${colors.text.primary} hover:${colors.text.hover} transition-colors tracking-tight`}
+          >
+            What I build
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            {projects.map((project, index) => (
+              <a
+                key={index}
+                target="_blank"
+                rel="noopener noreferrer"
+                href={project.link}
+                className="block group"
+                aria-label={`View project: ${project.title}`}
+              >
+                <article
+                  className={`rounded-lg ${colors.background.secondary} border ${colors.border.primary} p-6 hover:${colors.border.hover} transition-all duration-300 h-full`}
+                >
+                  <div className="flex items-center justify-between">
+                    <h3
+                      className={`text-xl font-normal ${colors.text.primary} group-hover:${colors.text.hover} transition-colors tracking-tight`}
+                    >
+                      {project.title}
+                    </h3>
+                    <FiArrowUpRight
+                      className={`w-4 h-4 ${colors.text.tertiary} group-hover:${colors.text.hover} transition-colors`}
+                      aria-hidden="true"
+                    />
+                  </div>
+                  {/* Divider */}
+                  <div
+                    className={`mt-2 mb-4 h-px w-full ${colors.divider.primary}`}
+                    role="presentation"
+                  />
+                  <p className={`${colors.text.secondary} leading-relaxed`}>
+                    {project.description}
+                  </p>
+                </article>
+              </a>
+            ))}
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <section className="mb-16">
+          <h2
+            className={`text-2xl font-normal mb-6 ${colors.text.primary} hover:${colors.text.hover} transition-colors tracking-tight`}
+          >
+            Contact
+          </h2>
+
+          {/* Divider */}
+          <div className={`my-5 h-px w-full ${colors.divider.primary}`} />
+
+          <div className="flex flex-col sm:flex-row gap-4">
+            <a
+              href="mailto:sudharshann05@gmail.com"
+              className={`flex items-center justify-center gap-2 px-6 py-3 rounded-full ${colors.background.secondary} ${colors.text.primary} hover:${colors.text.hover} border ${colors.border.primary} hover:${colors.border.hover} transition-colors w-full sm:w-auto`}
+            >
+              <HiMail className="w-5 h-5" />
+              <span>Send Email</span>
+            </a>
+            <a
+              href="https://cal.com/raj-sudharshan"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`flex items-center justify-center gap-2 px-6 py-3 rounded-full ${colors.background.secondary} ${colors.text.primary} hover:${colors.text.hover} border ${colors.border.primary} hover:${colors.border.hover} transition-colors w-full sm:w-auto`}
+            >
+              <BsCalendarWeek className="w-5 h-5" />
+              <span>Book Call</span>
+            </a>
+          </div>
+        </section>
+
+        {/* Footer */}
+        <footer className="pt-8 border-t border-[#333333]">
+          <div className="flex flex-col sm:flex-row items-center sm:justify-between text-sm gap-4 sm:gap-0">
+            <p className={`${colors.text.tertiary} text-center sm:text-left`}>
+              Less, but better.
+            </p>
+            <p className={`${colors.text.tertiary} text-center sm:text-right`}>
+              © {new Date().getFullYear()} Raj Sudharshan. All rights reserved.
+            </p>
+          </div>
+        </footer>
+      </div>
+    </main>
   );
-}
+};
+
+export default HomePage;
