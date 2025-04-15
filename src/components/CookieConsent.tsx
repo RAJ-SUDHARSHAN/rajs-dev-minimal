@@ -23,7 +23,7 @@ export default function CookieConsent() {
 
   return (
     <div
-      className={`fixed bottom-0 left-0 right-0 p-4 ${colors.background.primary} border-t ${colors.border.primary}`}
+      className={`fixed bottom-0 left-0 right-0 p-4 ${colors.background.tertiary} border-t ${colors.border.primary}`}
     >
       <div className="max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
         <p
