@@ -181,17 +181,19 @@ const HomePage = () => {
 
         {/* Footer */}
         <footer className="pt-8 border-t border-[#333333]">
-          <div className="flex flex-col sm:flex-row items-center sm:justify-between text-sm gap-4 sm:gap-0">
-            <p
-              className={`${colors.text.tertiary} ${colors.text.hover} text-center sm:text-left`}
-            >
+          <div className="flex flex-col sm:flex-row items-center justify-between text-sm gap-4">
+            <p className={`${colors.text.tertiary} ${colors.text.hover}`}>
               Less, but better.
             </p>
-            <p
-              className={`${colors.text.tertiary} ${colors.text.hover} text-center sm:text-right`}
-            >
-              © {new Date().getFullYear()} Raj Sudharshan. All rights reserved.
+            <p className={`${colors.text.tertiary} ${colors.text.hover}`}>
+              © {new Date().getFullYear()} Raj Sudharshan
             </p>
+            <a
+              href="/privacy"
+              className={`${colors.text.tertiary} ${colors.text.hover} transition-colors`}
+            >
+              Privacy Policy
+            </a>
           </div>
         </footer>
       </div>
